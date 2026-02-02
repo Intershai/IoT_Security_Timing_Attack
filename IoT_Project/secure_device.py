@@ -9,10 +9,8 @@ class SecureIoTSensor:
             return False
         
         result = 0
-        # Проверяем ВСЕ символы, используя побитовое ИЛИ
         for i in range(len(self.__secret_pin)):
-            # Если символы не равны, result станет не нулем
             result |= (ord(input_pin[i]) ^ ord(self.__secret_pin[i]))
-            time.sleep(0.05) # Задержка теперь всегда одинаковая
+            time.sleep(0.05)
             
         return result == 0
